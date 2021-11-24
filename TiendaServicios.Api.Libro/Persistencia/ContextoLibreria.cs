@@ -5,8 +5,10 @@ namespace TiendaServicios.Api.Libro.Persistencia
 {
     public class ContextoLibreria : DbContext
     {
+        public ContextoLibreria() { }
+
         public ContextoLibreria(DbContextOptions<ContextoLibreria> options) : base(options) { }
         
-        public DbSet<LibreriaMaterial> LibreriaMateriales { get; set; }
+        public virtual DbSet<LibreriaMaterial> LibreriaMateriales { get; set; }
     }
 }
