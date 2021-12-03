@@ -1,17 +1,12 @@
-using FluentValidation.AspNetCore;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Linq;
-using TiendaServicios.Api.Libro.Aplicacion;
-using TiendaServicios.Api.Libro.Persistencia;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 
-namespace TiendaServicios.Api.Libro
+namespace TiendaServicios.Api.Gateway
 {
     public class Startup
     {
@@ -25,20 +20,12 @@ namespace TiendaServicios.Api.Libro
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies().Where(p => !p.IsDynamic)));
-
-            services.AddDbContext<ContextoLibreria>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("ConnectionDatabase"));
-            });
-
-            services.AddMediatR(typeof(Nuevo.Manejador).Assembly);
+            //services.AddControllers();
+            services.AddOcelot();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -53,6 +40,8 @@ namespace TiendaServicios.Api.Libro
             {
                 endpoints.MapControllers();
             });
+
+            await app.UseOcelot();
         }
     }
 }

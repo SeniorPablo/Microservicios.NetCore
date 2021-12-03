@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Linq;
 using TiendaServicios.Api.Autor.Aplicacion;
 using TiendaServicios.Api.Autor.Persistencia;
 
@@ -25,7 +26,7 @@ namespace TiendaServicios.Api.Autor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+            services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies().Where(p => !p.IsDynamic)));
 
             services.AddDbContext<ContextoAutor>(options =>
             {
