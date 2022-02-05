@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.Api.Gateway
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.RabbitMQ.Bus", "TiendaServicios.RabbitMQ.Bus\TiendaServicios.RabbitMQ.Bus.csproj", "{C04D99F9-281D-44A3-A3E2-267C5F358D41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.Mensajeria.Email", "TiendaServicios.Mensajeria.Email\TiendaServicios.Mensajeria.Email.csproj", "{C6E6160A-8DA6-4AFC-8632-0D291202CECD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,14 @@ Global
 		{C04D99F9-281D-44A3-A3E2-267C5F358D41}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C04D99F9-281D-44A3-A3E2-267C5F358D41}.Release|x64.ActiveCfg = Release|Any CPU
 		{C04D99F9-281D-44A3-A3E2-267C5F358D41}.Release|x64.Build.0 = Release|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Debug|x64.Build.0 = Debug|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Release|x64.ActiveCfg = Release|Any CPU
+		{C6E6160A-8DA6-4AFC-8632-0D291202CECD}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

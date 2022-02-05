@@ -11,14 +11,14 @@ namespace TiendaServicios.Api.Autor.RabbitHandler
 
         public EmailEventHandler() {}
 
-        //public EmailEventHandler(ILogger<EmailEventHandler> logger)
-        //{
-        //    _logger = logger;    
-        //}
+        public EmailEventHandler(ILogger<EmailEventHandler> logger)
+        {
+            _logger = logger;
+        }
 
         public Task Handle(EmailEventQueue @event)
         {
-            //_logger.LogInformation($"Este es el valor que consumo desde RabbitMQ {@event.Title}");
+            _logger.LogInformation($"Este es el valor que consumo desde RabbitMQ {@event.Title}");
             return Task.CompletedTask;
         }
     }
